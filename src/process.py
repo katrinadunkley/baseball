@@ -75,7 +75,10 @@ replace_column_names = {
     "WSWin": "ws_win",
     "franchID": "franchise_id",
     "franchName": "franchise_name",
-    "NAassoc": "na_assoc"
+    "NAassoc": "na_assoc",
+    "teamIDbr": "team_id_br",
+    "teamIDlahman45": "team_id_lahman45",
+    "teamIDretro": "team_id_retro"
 }
 
 for table in sorted(tables):

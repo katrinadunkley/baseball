@@ -406,8 +406,8 @@ CREATE TABLE team (
     bpf INTEGER,
     ppf INTEGER,
     team_idbr TEXT,
-    team_idlahman45 TEXT,
-    team_idretro TEXT);
+    team_id_lahman45 TEXT,
+    team_id_retro TEXT);
 .import "working/no_header/team.csv" team
 
 CREATE TABLE team_franchise (

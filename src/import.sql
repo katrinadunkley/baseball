@@ -6,7 +6,7 @@ CREATE TABLE all_star (
     game_num INTEGER,
     game_id TEXT,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     gp NUMERIC,
     starting_pos NUMERIC);
 .import "working/no_header/all_star.csv" all_star
@@ -14,7 +14,7 @@ CREATE TABLE all_star (
 CREATE TABLE appearances (
     year_id INTEGER,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     player_id TEXT,
     g_all NUMERIC,
     gs NUMERIC,
@@ -39,7 +39,7 @@ CREATE TABLE manager_award (
     player_id TEXT,
     award_id TEXT,
     year_id INTEGER,
-    lg_id TEXT,
+    league_id TEXT,
     tie TEXT,
     notes NUMERIC);
 .import "working/no_header/manager_award.csv" manager_award
@@ -48,7 +48,7 @@ CREATE TABLE player_award (
     player_id TEXT,
     award_id TEXT,
     year_id INTEGER,
-    lg_id TEXT,
+    league_id TEXT,
     tie TEXT,
     notes TEXT);
 .import "working/no_header/player_award.csv" player_award
@@ -56,7 +56,7 @@ CREATE TABLE player_award (
 CREATE TABLE manager_award_vote (
     award_id TEXT,
     year_id INTEGER,
-    lg_id TEXT,
+    league_id TEXT,
     player_id TEXT,
     points_won INTEGER,
     points_max INTEGER,
@@ -66,7 +66,7 @@ CREATE TABLE manager_award_vote (
 CREATE TABLE player_award_vote (
     award_id TEXT,
     year_id INTEGER,
-    lg_id TEXT,
+    league_id TEXT,
     player_id TEXT,
     points_won NUMERIC,
     points_max INTEGER,
@@ -78,7 +78,7 @@ CREATE TABLE batting (
     year_id INTEGER,
     stint INTEGER,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     g INTEGER,
     ab NUMERIC,
     r NUMERIC,
@@ -103,7 +103,7 @@ CREATE TABLE batting_post (
     round TEXT,
     player_id TEXT,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     g INTEGER,
     ab INTEGER,
     r INTEGER,
@@ -134,7 +134,7 @@ CREATE TABLE fielding (
     year_id INTEGER,
     stint INTEGER,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     pos TEXT,
     g INTEGER,
     gs NUMERIC,
@@ -163,7 +163,7 @@ CREATE TABLE fielding_post (
     player_id TEXT,
     year_id INTEGER,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     round TEXT,
     pos TEXT,
     g INTEGER,
@@ -207,7 +207,7 @@ CREATE TABLE manager (
     player_id TEXT,
     year_id INTEGER,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     inseason INTEGER,
     g INTEGER,
     w INTEGER,
@@ -220,7 +220,7 @@ CREATE TABLE manager_half (
     player_id TEXT,
     year_id INTEGER,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     inseason INTEGER,
     half INTEGER,
     g INTEGER,
@@ -270,7 +270,7 @@ CREATE TABLE pitching (
     year_id INTEGER,
     stint INTEGER,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     w INTEGER,
     l INTEGER,
     g INTEGER,
@@ -303,7 +303,7 @@ CREATE TABLE pitching_post (
     year_id INTEGER,
     round TEXT,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     w INTEGER,
     l INTEGER,
     g INTEGER,
@@ -334,7 +334,7 @@ CREATE TABLE pitching_post (
 CREATE TABLE salary (
     year_id INTEGER,
     team_id TEXT,
-    lg_id TEXT,
+    league_id TEXT,
     player_id TEXT,
     salary INTEGER);
 .import "working/no_header/salary.csv" salary
@@ -350,10 +350,10 @@ CREATE TABLE college (
 CREATE TABLE postseason (
     year_id INTEGER,
     round TEXT,
-    team_id_winner TEXT,
-    lg_id_winner TEXT,
+    team_idwinner TEXT,
+    league_id_winner TEXT,
     team_id_loser TEXT,
-    lg_id_loser TEXT,
+    league_id_loser TEXT,
     wins INTEGER,
     losses INTEGER,
     ties INTEGER);
@@ -361,9 +361,9 @@ CREATE TABLE postseason (
 
 CREATE TABLE team (
     year_id INTEGER,
-    lg_id TEXT,
+    league_id TEXT,
     team_id TEXT,
-    franch_id TEXT,
+    franchise_id TEXT,
     div_id TEXT,
     rank INTEGER,
     g INTEGER,
@@ -411,15 +411,15 @@ CREATE TABLE team (
 .import "working/no_header/team.csv" team
 
 CREATE TABLE team_franchise (
-    franch_id TEXT,
-    franch_name TEXT,
+    franchise_id TEXT,
+    franchise_name TEXT,
     active TEXT,
     na_assoc TEXT);
 .import "working/no_header/team_franchise.csv" team_franchise
 
 CREATE TABLE team_half (
     year_id INTEGER,
-    lg_id TEXT,
+    league_id TEXT,
     team_id TEXT,
     half INTEGER,
     div_id TEXT,

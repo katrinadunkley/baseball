@@ -17,11 +17,11 @@ output/player_award.csv: src/import.sql
 output/manager_award_vote.csv: src/import.sql
 output/player_award_vote.csv: src/import.sql
 output/batting.csv: src/import.sql
-output/batting_post.csv: src/import.sql
+output/batting_postseason.csv: src/import.sql
 output/player_college.csv: src/import.sql
 output/fielding.csv: src/import.sql
 output/fielding_outfield.csv: src/import.sql
-output/fielding_post.csv: src/import.sql
+output/fielding_postseason.csv: src/import.sql
 output/hall_of_fame.csv: src/import.sql
 output/home_game.csv: src/import.sql
 output/manager.csv: src/import.sql
@@ -29,7 +29,7 @@ output/manager_half.csv: src/import.sql
 output/player.csv: src/import.sql
 output/park.csv: src/import.sql
 output/pitching.csv: src/import.sql
-output/pitching_post.csv: src/import.sql
+output/pitching_postseason.csv: src/import.sql
 output/salary.csv: src/import.sql
 output/college.csv: src/import.sql
 output/postseason.csv: src/import.sql
@@ -58,7 +58,7 @@ working/no_header/player_award_vote.csv: output/player_award_vote.csv
 working/no_header/batting.csv: output/batting.csv
 	mkdir -p working/no_header
 	tail +2 $^ > $@
-working/no_header/batting_post.csv: output/batting_post.csv
+working/no_header/batting_postseason.csv: output/batting_postseason.csv
 	mkdir -p working/no_header
 	tail +2 $^ > $@
 working/no_header/player_college.csv: output/player_college.csv
@@ -70,7 +70,7 @@ working/no_header/fielding.csv: output/fielding.csv
 working/no_header/fielding_outfield.csv: output/fielding_outfield.csv
 	mkdir -p working/no_header
 	tail +2 $^ > $@
-working/no_header/fielding_post.csv: output/fielding_post.csv
+working/no_header/fielding_postseason.csv: output/fielding_postseason.csv
 	mkdir -p working/no_header
 	tail +2 $^ > $@
 working/no_header/hall_of_fame.csv: output/hall_of_fame.csv
@@ -94,7 +94,7 @@ working/no_header/park.csv: output/park.csv
 working/no_header/pitching.csv: output/pitching.csv
 	mkdir -p working/no_header
 	tail +2 $^ > $@
-working/no_header/pitching_post.csv: output/pitching_post.csv
+working/no_header/pitching_postseason.csv: output/pitching_postseason.csv
 	mkdir -p working/no_header
 	tail +2 $^ > $@
 working/no_header/salary.csv: output/salary.csv
@@ -116,7 +116,7 @@ working/no_header/team_half.csv: output/team_half.csv
 	mkdir -p working/no_header
 	tail +2 $^ > $@
 
-output/database.sqlite: working/no_header/all_star.csv working/no_header/appearances.csv working/no_header/manager_award.csv working/no_header/player_award.csv working/no_header/manager_award_vote.csv working/no_header/player_award_vote.csv working/no_header/batting.csv working/no_header/batting_post.csv working/no_header/player_college.csv working/no_header/fielding.csv working/no_header/fielding_outfield.csv working/no_header/fielding_post.csv working/no_header/hall_of_fame.csv working/no_header/home_game.csv working/no_header/manager.csv working/no_header/manager_half.csv working/no_header/player.csv working/no_header/park.csv working/no_header/pitching.csv working/no_header/pitching_post.csv working/no_header/salary.csv working/no_header/college.csv working/no_header/postseason.csv working/no_header/team.csv working/no_header/team_franchise.csv working/no_header/team_half.csv 
+output/database.sqlite: working/no_header/all_star.csv working/no_header/appearances.csv working/no_header/manager_award.csv working/no_header/player_award.csv working/no_header/manager_award_vote.csv working/no_header/player_award_vote.csv working/no_header/batting.csv working/no_header/batting_postseason.csv working/no_header/player_college.csv working/no_header/fielding.csv working/no_header/fielding_outfield.csv working/no_header/fielding_postseason.csv working/no_header/hall_of_fame.csv working/no_header/home_game.csv working/no_header/manager.csv working/no_header/manager_half.csv working/no_header/player.csv working/no_header/park.csv working/no_header/pitching.csv working/no_header/pitching_postseason.csv working/no_header/salary.csv working/no_header/college.csv working/no_header/postseason.csv working/no_header/team.csv working/no_header/team_franchise.csv working/no_header/team_half.csv 
 	-rm output/database.sqlite
 	sqlite3 -echo $@ < src/import.sql
 db: output/database.sqlite

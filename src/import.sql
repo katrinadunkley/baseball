@@ -98,7 +98,7 @@ CREATE TABLE batting (
     g_idp NUMERIC);
 .import "working/no_header/batting.csv" batting
 
-CREATE TABLE batting_post (
+CREATE TABLE batting_postseason (
     year INTEGER,
     round TEXT,
     player_id TEXT,
@@ -121,7 +121,7 @@ CREATE TABLE batting_post (
     sh NUMERIC,
     sf NUMERIC,
     g_idp NUMERIC);
-.import "working/no_header/batting_post.csv" batting_post
+.import "working/no_header/batting_postseason.csv" batting_postseason
 
 CREATE TABLE player_college (
     player_id TEXT,
@@ -159,7 +159,7 @@ CREATE TABLE fielding_outfield (
     grf NUMERIC);
 .import "working/no_header/fielding_outfield.csv" fielding_outfield
 
-CREATE TABLE fielding_post (
+CREATE TABLE fielding_postseason (
     player_id TEXT,
     year INTEGER,
     team_id TEXT,
@@ -177,7 +177,7 @@ CREATE TABLE fielding_post (
     pb NUMERIC,
     sb NUMERIC,
     cs NUMERIC);
-.import "working/no_header/fielding_post.csv" fielding_post
+.import "working/no_header/fielding_postseason.csv" fielding_postseason
 
 CREATE TABLE hall_of_fame (
     player_id TEXT,
@@ -298,7 +298,7 @@ CREATE TABLE pitching (
     g_idp NUMERIC);
 .import "working/no_header/pitching.csv" pitching
 
-CREATE TABLE pitching_post (
+CREATE TABLE pitching_postseason (
     player_id TEXT,
     year INTEGER,
     round TEXT,
@@ -329,7 +329,7 @@ CREATE TABLE pitching_post (
     sh NUMERIC,
     sf NUMERIC,
     g_idp NUMERIC);
-.import "working/no_header/pitching_post.csv" pitching_post
+.import "working/no_header/pitching_postseason.csv" pitching_postseason
 
 CREATE TABLE salary (
     year INTEGER,

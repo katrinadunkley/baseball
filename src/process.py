@@ -82,7 +82,7 @@ for table in tables:
     data.columns = [col if col != "franchName" else "franch_name" for col in data.columns]
     data.columns = [col if col != "NAassoc" else "na_assoc" for col in data.columns]
     data.columns = [col.lower() for col in data.columns]
-    
+
     data.to_csv("output/%s.csv" % table, index=False)
     data = pd.read_csv("output/%s.csv" % table, low_memory=False)
 
@@ -96,4 +96,4 @@ for table in tables:
                                    " PRIMARY KEY" if key=="Id" else "")
                    for key in data.dtypes.keys()]), table, table)
 
-open("working/import.sql", "w").write(sql)
+open("src/import.sql", "w").write(sql)

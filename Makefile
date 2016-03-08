@@ -5,36 +5,36 @@ input/baseball.zip:
 input/baseballdatabank-master/README.txt: input/baseball.zip
 	cd input; unzip baseball.zip
 
-working/import.sql: input/baseballdatabank-master/README.txt
+src/import.sql: input/baseballdatabank-master/README.txt
 	mkdir -p working
 	mkdir -p output
 	python src/process.py
-output/AllstarFull.csv: working/import.sql
-output/Appearances.csv: working/import.sql
-output/AwardsManagers.csv: working/import.sql
-output/AwardsPlayers.csv: working/import.sql
-output/AwardsShareManagers.csv: working/import.sql
-output/AwardsSharePlayers.csv: working/import.sql
-output/Batting.csv: working/import.sql
-output/BattingPost.csv: working/import.sql
-output/CollegePlaying.csv: working/import.sql
-output/Fielding.csv: working/import.sql
-output/FieldingOF.csv: working/import.sql
-output/FieldingPost.csv: working/import.sql
-output/HallOfFame.csv: working/import.sql
-output/HomeGames.csv: working/import.sql
-output/Managers.csv: working/import.sql
-output/ManagersHalf.csv: working/import.sql
-output/Master.csv: working/import.sql
-output/Parks.csv: working/import.sql
-output/Pitching.csv: working/import.sql
-output/PitchingPost.csv: working/import.sql
-output/Salaries.csv: working/import.sql
-output/Schools.csv: working/import.sql
-output/SeriesPost.csv: working/import.sql
-output/Teams.csv: working/import.sql
-output/TeamsFranchises.csv: working/import.sql
-output/TeamsHalf.csv: working/import.sql
+output/AllstarFull.csv: src/import.sql
+output/Appearances.csv: src/import.sql
+output/AwardsManagers.csv: src/import.sql
+output/AwardsPlayers.csv: src/import.sql
+output/AwardsShareManagers.csv: src/import.sql
+output/AwardsSharePlayers.csv: src/import.sql
+output/Batting.csv: src/import.sql
+output/BattingPost.csv: src/import.sql
+output/CollegePlaying.csv: src/import.sql
+output/Fielding.csv: src/import.sql
+output/FieldingOF.csv: src/import.sql
+output/FieldingPost.csv: src/import.sql
+output/HallOfFame.csv: src/import.sql
+output/HomeGames.csv: src/import.sql
+output/Managers.csv: src/import.sql
+output/ManagersHalf.csv: src/import.sql
+output/Master.csv: src/import.sql
+output/Parks.csv: src/import.sql
+output/Pitching.csv: src/import.sql
+output/PitchingPost.csv: src/import.sql
+output/Salaries.csv: src/import.sql
+output/Schools.csv: src/import.sql
+output/SeriesPost.csv: src/import.sql
+output/Teams.csv: src/import.sql
+output/TeamsFranchises.csv: src/import.sql
+output/TeamsHalf.csv: src/import.sql
 
 working/no_header/AllstarFull.csv: output/AllstarFull.csv
 	mkdir -p working/no_header
@@ -117,7 +117,7 @@ working/no_header/TeamsHalf.csv: output/TeamsHalf.csv
 
 output/database.sqlite: working/no_header/AllstarFull.csv working/no_header/Appearances.csv working/no_header/AwardsManagers.csv working/no_header/AwardsPlayers.csv working/no_header/AwardsShareManagers.csv working/no_header/AwardsSharePlayers.csv working/no_header/Batting.csv working/no_header/BattingPost.csv working/no_header/CollegePlaying.csv working/no_header/Fielding.csv working/no_header/FieldingOF.csv working/no_header/FieldingPost.csv working/no_header/HallOfFame.csv working/no_header/HomeGames.csv working/no_header/Managers.csv working/no_header/ManagersHalf.csv working/no_header/Master.csv working/no_header/Parks.csv working/no_header/Pitching.csv working/no_header/PitchingPost.csv working/no_header/Salaries.csv working/no_header/Schools.csv working/no_header/SeriesPost.csv working/no_header/Teams.csv working/no_header/TeamsFranchises.csv working/no_header/TeamsHalf.csv 
 	-rm output/database.sqlite
-	sqlite3 -echo $@ < working/import.sql
+	sqlite3 -echo $@ < src/import.sql
 db: output/database.sqlite
 
 output/readme.txt: input/baseballdatabank-master/README.txt
@@ -145,5 +145,6 @@ release: output/hashes.txt
 all: release
 
 clean:
+	rm -rf src/import.sql
 	rm -rf working
 	rm -rf output

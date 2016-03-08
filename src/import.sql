@@ -125,7 +125,7 @@ CREATE TABLE batting_post (
 
 CREATE TABLE player_college (
     player_id TEXT,
-    school_id TEXT,
+    college_id TEXT,
     year_id INTEGER);
 .import "working/no_header/player_college.csv" player_college
 
@@ -340,7 +340,7 @@ CREATE TABLE salary (
 .import "working/no_header/salary.csv" salary
 
 CREATE TABLE college (
-    school_id TEXT,
+    college_id TEXT,
     name_full TEXT,
     city TEXT,
     state TEXT,
@@ -350,7 +350,7 @@ CREATE TABLE college (
 CREATE TABLE postseason (
     year_id INTEGER,
     round TEXT,
-    team_idwinner TEXT,
+    team_id_winner TEXT,
     league_id_winner TEXT,
     team_id_loser TEXT,
     league_id_loser TEXT,
@@ -405,7 +405,7 @@ CREATE TABLE team (
     attendance NUMERIC,
     bpf INTEGER,
     ppf INTEGER,
-    team_idbr TEXT,
+    team_id_br TEXT,
     team_id_lahman45 TEXT,
     team_id_retro TEXT);
 .import "working/no_header/team.csv" team

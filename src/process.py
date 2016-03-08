@@ -64,7 +64,7 @@ replace_column_names = {
     "nameLast": "name_last",
     "nameGiven": "name_given",
     "finalGame": "final_game",
-    "team_idwinner": "team_id_winner",
+    "teamIDwinner": "team_id_winner",
     "lgIDwinner": "league_id_winner",
     "teamIDloser": "team_id_loser",
     "lgIDloser": "league_id_loser",
@@ -76,7 +76,7 @@ replace_column_names = {
     "franchID": "franchise_id",
     "franchName": "franchise_name",
     "NAassoc": "na_assoc",
-    "teamIDbr": "team_id_br",
+    "teamIDBR": "team_id_br",
     "teamIDlahman45": "team_id_lahman45",
     "teamIDretro": "team_id_retro",
     "schoolID": "college_id"

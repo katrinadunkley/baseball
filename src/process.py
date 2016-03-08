@@ -78,7 +78,8 @@ replace_column_names = {
     "NAassoc": "na_assoc",
     "teamIDbr": "team_id_br",
     "teamIDlahman45": "team_id_lahman45",
-    "teamIDretro": "team_id_retro"
+    "teamIDretro": "team_id_retro",
+    "schoolID": "college_id"
 }
 
 for table in sorted(tables):

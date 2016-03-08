@@ -6,38 +6,38 @@ conversion = {
     "int64": "INTEGER"
 }
 
-tables = ["AllstarFull",
-          "Appearances",
-          "AwardsManagers",
-          "AwardsPlayers",
-          "AwardsShareManagers",
-          "AwardsSharePlayers",
-          "Batting",
-          "BattingPost",
-          "CollegePlaying",
-          "Fielding",
-          "FieldingOF",
-          "FieldingPost",
-          "HallOfFame",
-          "HomeGames",
-          "Managers",
-          "ManagersHalf",
-          "Master",
-          "Parks",
-          "Pitching",
-          "PitchingPost",
-          "Salaries",
-          "Schools",
-          "SeriesPost",
-          "Teams",
-          "TeamsFranchises",
-          "TeamsHalf"]
+tables = {"AllstarFull": "all_star",
+          "Appearances": "appearances",
+          "AwardsManagers": "manager_award",
+          "AwardsPlayers": "player_award",
+          "AwardsShareManagers": "manager_award_vote",
+          "AwardsSharePlayers": "player_award_vote",
+          "Batting": "batting",
+          "BattingPost": "batting_post",
+          "CollegePlaying": "player_college",
+          "Fielding": "fielding",
+          "FieldingOF": "fielding_outfield",
+          "FieldingPost": "fielding_post",
+          "HallOfFame": "hall_of_fame",
+          "HomeGames": "home_game",
+          "Managers": "manager",
+          "ManagersHalf": "manager_half",
+          "Master": "player",
+          "Parks": "park",
+          "Pitching": "pitching",
+          "PitchingPost": "pitching_post",
+          "Salaries": "salary",
+          "Schools": "college",
+          "SeriesPost": "postseason",
+          "Teams": "team",
+          "TeamsFranchises": "team_franchise",
+          "TeamsHalf": "team_half"}
 
 sql = """.separator ","
 
 """
 
-for table in tables:
+for table in sorted(tables):
     print(table)
     data = pd.read_csv("input/baseballdatabank-master/core/%s.csv" % table, low_memory=False)
     data.columns = [col.replace("ID", "_id") for col in data.columns]
@@ -45,8 +45,8 @@ for table in tables:
     data.columns = [col.replace(".key",  "_id") for col in data.columns]
     data.columns = [col.replace(".key",  "_id") for col in data.columns]
     data.columns = [col.replace(".",  "_") for col in data.columns]
-    data.columns = [col if col != "2B" else "B2" for col in data.columns]
-    data.columns = [col if col != "3B" else "B3" for col in data.columns]
+    data.columns = [col if col != "2B" else "double" for col in data.columns]
+    data.columns = [col if col != "3B" else "triple" for col in data.columns]
     data.columns = [col if col != "gameNum" else "game_num" for col in data.columns]
     data.columns = [col if col != "startingPos" else "starting_pos" for col in data.columns]
     data.columns = [col if col != "pointsWon" else "points_won" for col in data.columns]
@@ -83,17 +83,17 @@ for table in tables:
     data.columns = [col if col != "NAassoc" else "na_assoc" for col in data.columns]
     data.columns = [col.lower() for col in data.columns]
 
-    data.to_csv("output/%s.csv" % table, index=False)
-    data = pd.read_csv("output/%s.csv" % table, low_memory=False)
+    data.to_csv("output/%s.csv" % tables[table], index=False)
+    data = pd.read_csv("output/%s.csv" % tables[table], low_memory=False)
 
     sql += """CREATE TABLE %s (
 %s);
 .import "working/no_header/%s.csv" %s
 
-""" % (table,
+""" % (tables[table],
        ",\n".join(["    %s %s%s" % (key,
                                    conversion[str(data.dtypes[key])],
                                    " PRIMARY KEY" if key=="Id" else "")
-                   for key in data.dtypes.keys()]), table, table)
+                   for key in data.dtypes.keys()]), tables[table], tables[table])
 
 open("src/import.sql", "w").write(sql)

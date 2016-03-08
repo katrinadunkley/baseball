@@ -1,6 +1,6 @@
 .separator ","
 
-CREATE TABLE AllstarFull (
+CREATE TABLE all_star (
     player_id TEXT,
     year_id INTEGER,
     game_num INTEGER,
@@ -9,9 +9,9 @@ CREATE TABLE AllstarFull (
     lg_id TEXT,
     gp NUMERIC,
     starting_pos NUMERIC);
-.import "working/no_header/AllstarFull.csv" AllstarFull
+.import "working/no_header/all_star.csv" all_star
 
-CREATE TABLE Appearances (
+CREATE TABLE appearances (
     year_id INTEGER,
     team_id TEXT,
     lg_id TEXT,
@@ -33,27 +33,27 @@ CREATE TABLE Appearances (
     g_dh NUMERIC,
     g_ph NUMERIC,
     g_pr NUMERIC);
-.import "working/no_header/Appearances.csv" Appearances
+.import "working/no_header/appearances.csv" appearances
 
-CREATE TABLE AwardsManagers (
+CREATE TABLE manager_award (
     player_id TEXT,
     award_id TEXT,
     year_id INTEGER,
     lg_id TEXT,
     tie TEXT,
     notes NUMERIC);
-.import "working/no_header/AwardsManagers.csv" AwardsManagers
+.import "working/no_header/manager_award.csv" manager_award
 
-CREATE TABLE AwardsPlayers (
+CREATE TABLE player_award (
     player_id TEXT,
     award_id TEXT,
     year_id INTEGER,
     lg_id TEXT,
     tie TEXT,
     notes TEXT);
-.import "working/no_header/AwardsPlayers.csv" AwardsPlayers
+.import "working/no_header/player_award.csv" player_award
 
-CREATE TABLE AwardsShareManagers (
+CREATE TABLE manager_award_vote (
     award_id TEXT,
     year_id INTEGER,
     lg_id TEXT,
@@ -61,9 +61,9 @@ CREATE TABLE AwardsShareManagers (
     points_won INTEGER,
     points_max INTEGER,
     votes_first INTEGER);
-.import "working/no_header/AwardsShareManagers.csv" AwardsShareManagers
+.import "working/no_header/manager_award_vote.csv" manager_award_vote
 
-CREATE TABLE AwardsSharePlayers (
+CREATE TABLE player_award_vote (
     award_id TEXT,
     year_id INTEGER,
     lg_id TEXT,
@@ -71,9 +71,9 @@ CREATE TABLE AwardsSharePlayers (
     points_won NUMERIC,
     points_max INTEGER,
     votes_first NUMERIC);
-.import "working/no_header/AwardsSharePlayers.csv" AwardsSharePlayers
+.import "working/no_header/player_award_vote.csv" player_award_vote
 
-CREATE TABLE Batting (
+CREATE TABLE batting (
     player_id TEXT,
     year_id INTEGER,
     stint INTEGER,
@@ -83,8 +83,8 @@ CREATE TABLE Batting (
     ab NUMERIC,
     r NUMERIC,
     h NUMERIC,
-    b2 NUMERIC,
-    b3 NUMERIC,
+    double NUMERIC,
+    triple NUMERIC,
     hr NUMERIC,
     rbi NUMERIC,
     sb NUMERIC,
@@ -96,9 +96,9 @@ CREATE TABLE Batting (
     sh NUMERIC,
     sf NUMERIC,
     g_idp NUMERIC);
-.import "working/no_header/Batting.csv" Batting
+.import "working/no_header/batting.csv" batting
 
-CREATE TABLE BattingPost (
+CREATE TABLE batting_post (
     year_id INTEGER,
     round TEXT,
     player_id TEXT,
@@ -108,8 +108,8 @@ CREATE TABLE BattingPost (
     ab INTEGER,
     r INTEGER,
     h INTEGER,
-    b2 INTEGER,
-    b3 INTEGER,
+    double INTEGER,
+    triple INTEGER,
     hr INTEGER,
     rbi INTEGER,
     sb INTEGER,
@@ -121,15 +121,15 @@ CREATE TABLE BattingPost (
     sh NUMERIC,
     sf NUMERIC,
     g_idp NUMERIC);
-.import "working/no_header/BattingPost.csv" BattingPost
+.import "working/no_header/batting_post.csv" batting_post
 
-CREATE TABLE CollegePlaying (
+CREATE TABLE player_college (
     player_id TEXT,
     school_id TEXT,
     year_id INTEGER);
-.import "working/no_header/CollegePlaying.csv" CollegePlaying
+.import "working/no_header/player_college.csv" player_college
 
-CREATE TABLE Fielding (
+CREATE TABLE fielding (
     player_id TEXT,
     year_id INTEGER,
     stint INTEGER,
@@ -148,18 +148,18 @@ CREATE TABLE Fielding (
     sb NUMERIC,
     cs NUMERIC,
     zr NUMERIC);
-.import "working/no_header/Fielding.csv" Fielding
+.import "working/no_header/fielding.csv" fielding
 
-CREATE TABLE FieldingOF (
+CREATE TABLE fielding_outfield (
     player_id TEXT,
     year_id INTEGER,
     stint INTEGER,
     glf NUMERIC,
     gcf NUMERIC,
     grf NUMERIC);
-.import "working/no_header/FieldingOF.csv" FieldingOF
+.import "working/no_header/fielding_outfield.csv" fielding_outfield
 
-CREATE TABLE FieldingPost (
+CREATE TABLE fielding_post (
     player_id TEXT,
     year_id INTEGER,
     team_id TEXT,
@@ -177,9 +177,9 @@ CREATE TABLE FieldingPost (
     pb NUMERIC,
     sb NUMERIC,
     cs NUMERIC);
-.import "working/no_header/FieldingPost.csv" FieldingPost
+.import "working/no_header/fielding_post.csv" fielding_post
 
-CREATE TABLE HallOfFame (
+CREATE TABLE hall_of_fame (
     player_id TEXT,
     yearid INTEGER,
     votedby TEXT,
@@ -189,9 +189,9 @@ CREATE TABLE HallOfFame (
     inducted TEXT,
     category TEXT,
     needed_note TEXT);
-.import "working/no_header/HallOfFame.csv" HallOfFame
+.import "working/no_header/hall_of_fame.csv" hall_of_fame
 
-CREATE TABLE HomeGames (
+CREATE TABLE home_game (
     year INTEGER,
     league_id TEXT,
     team_id TEXT,
@@ -201,9 +201,9 @@ CREATE TABLE HomeGames (
     games INTEGER,
     openings INTEGER,
     attendance INTEGER);
-.import "working/no_header/HomeGames.csv" HomeGames
+.import "working/no_header/home_game.csv" home_game
 
-CREATE TABLE Managers (
+CREATE TABLE manager (
     player_id TEXT,
     year_id INTEGER,
     team_id TEXT,
@@ -214,9 +214,9 @@ CREATE TABLE Managers (
     l INTEGER,
     rank NUMERIC,
     plyr_mgr TEXT);
-.import "working/no_header/Managers.csv" Managers
+.import "working/no_header/manager.csv" manager
 
-CREATE TABLE ManagersHalf (
+CREATE TABLE manager_half (
     player_id TEXT,
     year_id INTEGER,
     team_id TEXT,
@@ -227,9 +227,9 @@ CREATE TABLE ManagersHalf (
     w INTEGER,
     l INTEGER,
     rank INTEGER);
-.import "working/no_header/ManagersHalf.csv" ManagersHalf
+.import "working/no_header/manager_half.csv" manager_half
 
-CREATE TABLE Master (
+CREATE TABLE player (
     player_id TEXT,
     birth_year NUMERIC,
     birth_month NUMERIC,
@@ -254,18 +254,18 @@ CREATE TABLE Master (
     final_game TEXT,
     retro_id TEXT,
     bbref_id TEXT);
-.import "working/no_header/Master.csv" Master
+.import "working/no_header/player.csv" player
 
-CREATE TABLE Parks (
+CREATE TABLE park (
     park_id TEXT,
     park_name TEXT,
     park_alias TEXT,
     city TEXT,
     state TEXT,
     country TEXT);
-.import "working/no_header/Parks.csv" Parks
+.import "working/no_header/park.csv" park
 
-CREATE TABLE Pitching (
+CREATE TABLE pitching (
     player_id TEXT,
     year_id INTEGER,
     stint INTEGER,
@@ -296,9 +296,9 @@ CREATE TABLE Pitching (
     sh NUMERIC,
     sf NUMERIC,
     g_idp NUMERIC);
-.import "working/no_header/Pitching.csv" Pitching
+.import "working/no_header/pitching.csv" pitching
 
-CREATE TABLE PitchingPost (
+CREATE TABLE pitching_post (
     player_id TEXT,
     year_id INTEGER,
     round TEXT,
@@ -329,25 +329,25 @@ CREATE TABLE PitchingPost (
     sh NUMERIC,
     sf NUMERIC,
     g_idp NUMERIC);
-.import "working/no_header/PitchingPost.csv" PitchingPost
+.import "working/no_header/pitching_post.csv" pitching_post
 
-CREATE TABLE Salaries (
+CREATE TABLE salary (
     year_id INTEGER,
     team_id TEXT,
     lg_id TEXT,
     player_id TEXT,
     salary INTEGER);
-.import "working/no_header/Salaries.csv" Salaries
+.import "working/no_header/salary.csv" salary
 
-CREATE TABLE Schools (
+CREATE TABLE college (
     school_id TEXT,
     name_full TEXT,
     city TEXT,
     state TEXT,
     country TEXT);
-.import "working/no_header/Schools.csv" Schools
+.import "working/no_header/college.csv" college
 
-CREATE TABLE SeriesPost (
+CREATE TABLE postseason (
     year_id INTEGER,
     round TEXT,
     team_id_winner TEXT,
@@ -357,9 +357,9 @@ CREATE TABLE SeriesPost (
     wins INTEGER,
     losses INTEGER,
     ties INTEGER);
-.import "working/no_header/SeriesPost.csv" SeriesPost
+.import "working/no_header/postseason.csv" postseason
 
-CREATE TABLE Teams (
+CREATE TABLE team (
     year_id INTEGER,
     lg_id TEXT,
     team_id TEXT,
@@ -377,8 +377,8 @@ CREATE TABLE Teams (
     r INTEGER,
     ab INTEGER,
     h INTEGER,
-    b2 INTEGER,
-    b3 INTEGER,
+    double INTEGER,
+    triple INTEGER,
     hr INTEGER,
     bb INTEGER,
     so NUMERIC,
@@ -408,16 +408,16 @@ CREATE TABLE Teams (
     team_idbr TEXT,
     team_idlahman45 TEXT,
     team_idretro TEXT);
-.import "working/no_header/Teams.csv" Teams
+.import "working/no_header/team.csv" team
 
-CREATE TABLE TeamsFranchises (
+CREATE TABLE team_franchise (
     franch_id TEXT,
     franch_name TEXT,
     active TEXT,
     na_assoc TEXT);
-.import "working/no_header/TeamsFranchises.csv" TeamsFranchises
+.import "working/no_header/team_franchise.csv" team_franchise
 
-CREATE TABLE TeamsHalf (
+CREATE TABLE team_half (
     year_id INTEGER,
     lg_id TEXT,
     team_id TEXT,
@@ -428,5 +428,5 @@ CREATE TABLE TeamsHalf (
     g INTEGER,
     w INTEGER,
     l INTEGER);
-.import "working/no_header/TeamsHalf.csv" TeamsHalf
+.import "working/no_header/team_half.csv" team_half
 

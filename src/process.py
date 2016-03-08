@@ -79,7 +79,8 @@ replace_column_names = {
     "teamIDBR": "team_id_br",
     "teamIDlahman45": "team_id_lahman45",
     "teamIDretro": "team_id_retro",
-    "schoolID": "college_id"
+    "schoolID": "college_id",
+    "yearID": "year"
 }
 
 for table in sorted(tables):

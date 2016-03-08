@@ -2,7 +2,7 @@
 
 CREATE TABLE all_star (
     player_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     game_num INTEGER,
     game_id TEXT,
     team_id TEXT,
@@ -12,7 +12,7 @@ CREATE TABLE all_star (
 .import "working/no_header/all_star.csv" all_star
 
 CREATE TABLE appearances (
-    year_id INTEGER,
+    year INTEGER,
     team_id TEXT,
     league_id TEXT,
     player_id TEXT,
@@ -38,7 +38,7 @@ CREATE TABLE appearances (
 CREATE TABLE manager_award (
     player_id TEXT,
     award_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     league_id TEXT,
     tie TEXT,
     notes NUMERIC);
@@ -47,7 +47,7 @@ CREATE TABLE manager_award (
 CREATE TABLE player_award (
     player_id TEXT,
     award_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     league_id TEXT,
     tie TEXT,
     notes TEXT);
@@ -55,7 +55,7 @@ CREATE TABLE player_award (
 
 CREATE TABLE manager_award_vote (
     award_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     league_id TEXT,
     player_id TEXT,
     points_won INTEGER,
@@ -65,7 +65,7 @@ CREATE TABLE manager_award_vote (
 
 CREATE TABLE player_award_vote (
     award_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     league_id TEXT,
     player_id TEXT,
     points_won NUMERIC,
@@ -75,7 +75,7 @@ CREATE TABLE player_award_vote (
 
 CREATE TABLE batting (
     player_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     stint INTEGER,
     team_id TEXT,
     league_id TEXT,
@@ -99,7 +99,7 @@ CREATE TABLE batting (
 .import "working/no_header/batting.csv" batting
 
 CREATE TABLE batting_post (
-    year_id INTEGER,
+    year INTEGER,
     round TEXT,
     player_id TEXT,
     team_id TEXT,
@@ -126,12 +126,12 @@ CREATE TABLE batting_post (
 CREATE TABLE player_college (
     player_id TEXT,
     college_id TEXT,
-    year_id INTEGER);
+    year INTEGER);
 .import "working/no_header/player_college.csv" player_college
 
 CREATE TABLE fielding (
     player_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     stint INTEGER,
     team_id TEXT,
     league_id TEXT,
@@ -152,7 +152,7 @@ CREATE TABLE fielding (
 
 CREATE TABLE fielding_outfield (
     player_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     stint INTEGER,
     glf NUMERIC,
     gcf NUMERIC,
@@ -161,7 +161,7 @@ CREATE TABLE fielding_outfield (
 
 CREATE TABLE fielding_post (
     player_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     team_id TEXT,
     league_id TEXT,
     round TEXT,
@@ -205,7 +205,7 @@ CREATE TABLE home_game (
 
 CREATE TABLE manager (
     player_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     team_id TEXT,
     league_id TEXT,
     inseason INTEGER,
@@ -218,7 +218,7 @@ CREATE TABLE manager (
 
 CREATE TABLE manager_half (
     player_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     team_id TEXT,
     league_id TEXT,
     inseason INTEGER,
@@ -267,7 +267,7 @@ CREATE TABLE park (
 
 CREATE TABLE pitching (
     player_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     stint INTEGER,
     team_id TEXT,
     league_id TEXT,
@@ -300,7 +300,7 @@ CREATE TABLE pitching (
 
 CREATE TABLE pitching_post (
     player_id TEXT,
-    year_id INTEGER,
+    year INTEGER,
     round TEXT,
     team_id TEXT,
     league_id TEXT,
@@ -332,7 +332,7 @@ CREATE TABLE pitching_post (
 .import "working/no_header/pitching_post.csv" pitching_post
 
 CREATE TABLE salary (
-    year_id INTEGER,
+    year INTEGER,
     team_id TEXT,
     league_id TEXT,
     player_id TEXT,
@@ -348,7 +348,7 @@ CREATE TABLE college (
 .import "working/no_header/college.csv" college
 
 CREATE TABLE postseason (
-    year_id INTEGER,
+    year INTEGER,
     round TEXT,
     team_id_winner TEXT,
     league_id_winner TEXT,
@@ -360,7 +360,7 @@ CREATE TABLE postseason (
 .import "working/no_header/postseason.csv" postseason
 
 CREATE TABLE team (
-    year_id INTEGER,
+    year INTEGER,
     league_id TEXT,
     team_id TEXT,
     franchise_id TEXT,
@@ -418,7 +418,7 @@ CREATE TABLE team_franchise (
 .import "working/no_header/team_franchise.csv" team_franchise
 
 CREATE TABLE team_half (
-    year_id INTEGER,
+    year INTEGER,
     league_id TEXT,
     team_id TEXT,
     half INTEGER,
